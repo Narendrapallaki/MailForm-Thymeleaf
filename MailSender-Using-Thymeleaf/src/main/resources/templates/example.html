@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+/* Horizontal Navbar */
+.horizontal-navbar {
+	overflow: hidden;
+	background-color: #333;
+}
+
+.horizontal-navbar a {
+	float: left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.horizontal-navbar a:hover {
+	background-color: #111;
+}
+
+.active {
+	background-color: #04AA6D;
+}
+
+/* Vertical Navbar */
+.vertical-navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 15px;
+	width: 90px;
+	height: 500px;
+	background-color: #f1f1f1;
+	float: left; /* Ensure it's displayed beside the horizontal navbar */
+}
+
+.vertical-navbar a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.vertical-navbar a.active {
+	background-color: #04AA6D;
+	color: white;
+}
+
+.vertical-navbar a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
+
+/* Main content area */
+.content {
+	margin-left: 100px;
+	/* Adjust this value to match the width of your vertical navbar */
+	padding: 16px;
+}
+</style>
+</head>
+<body>
+
+
+	<div class="horizontal-navbar">
+		<a href="#home">Home</a> <a href="#news">News</a> <a href="#contact">Contact</a>
+		<a style="float: right" class="active" href="#about">Logout</a>
+	</div>
+
+
+	<ul class="vertical-navbar">
+
+		<li><a class="active" th:href="@{/test}">Compose</a></li>
+	</ul>
+
+	<!-- Main content area -->
+	<form th:action="@{/send-email}" method="post" id="emailForm">
+		<div class="content" id="mainContent">
+
+
+			<div id="home">
+				<h1>Send Email to the Employees</h1>
+
+				<!-- 	<div>
+					<label for="from">From:</label> <input type="email" id="from"
+						name="from" required>
+				</div> -->
+				<br>
+				<div>
+
+					<label for="toMail">Email:</label> <input type="email" id="toMail"
+						name="toMail" placeholder="Enter email"> <br>
+					<p>Or</p>
+					<label for="file">Upload Excel File:</label> <input type="file"
+						id="file" name="file"><br> <br>
+				</div>
+				<div>
+					<label for="subject">Subject:</label> <input type="text"
+						id="subject" name="subject" required>
+				</div>
+				<br> <br>
+				<div>
+					<label for="attFile">Attachement File:</label> <input type="file"
+						id="attFile" name="attFile" multiple><br> <br>
+				</div>
+				<div>
+					<label for="text">Text Message:</label><br>
+					<textarea id="text" name="text" ></textarea>
+					<br> <br>
+				</div>
+				<input type="submit" value="Send">
+
+			</div>
+		</div>
+	</form>
+
+	<script>
+    function openCompose() {
+        document.getElementById("mainContent").innerHTML = `
+            <h2>Compose</h2>
+            
+        `;
+    }
+</script>
+
+</body>
+</html>

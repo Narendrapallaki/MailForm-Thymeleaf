@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+<style>
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+form {
+	text-align: center;
+}
+
+#home {
+	border: 2px solid black;
+	padding: 10px;
+	border-radius: 25px;
+}
+</style>
+</head>
+<body>
+	<form th:action="@{/mailbox-page}" method="get">
+		<div id="home">
+			<h1>Welcome to login page</h1>
+			<div>
+				<label for="username">Username:</label> <input type="text"
+					id="username" name="username">
+			</div>
+			<br>
+			<div>
+				<label for="password">Password:</label> <input type="password"
+					id="password" name="password">
+			</div>
+
+			<br>
+			
+			<div>
+				<button type="submit">Submit</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
